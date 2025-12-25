@@ -1,0 +1,64 @@
+class HashTable:
+    def __init__(self, size=10):
+        self.size = size
+        self.table = [[] for _ in range(size)]
+
+    # Simple hash function
+    def hash_function(self, key):
+        return sum(ord(c) for c in key) % self.size
+
+    # Insert key-value pair
+    def insert(self, key, value):
+        index = self.hash_function(key)
+        chain = self.table[index]
+
+        # If key already exists → update
+        for i, (k, v) in enumerate(chain):
+            if k == key:
+                chain[i] = (key, value)
+                return
+        
+        chain.append((key, value))
+
+    # Search value by key
+    def search(self, key):
+        index = self.hash_function(key)
+        chain = self.table[index]
+
+        for k, v in chain:
+            if k == key:
+                return v
+        return None
+
+    # Delete key-value pair
+    def delete(self, key):
+        index = self.hash_function(key)
+        chain = self.table[index]
+
+        for i, (k, v) in enumerate(chain):
+            
+            if k == key:
+                del chain[i]
+                return True
+        return False
+
+    # Print table for debugging
+    def display(self):
+        for i, chain in enumerate(self.table):
+            print(i, ":", chain)
+
+
+# Example usage
+ht = HashTable()
+
+ht.insert("apple", 100)
+ht.insert("banana", 200)
+ht.insert("cat", 300)
+ht.insert("dog", 400)
+ht.insert("ant", 500)
+
+# ht.display()
+
+# print("Search apple:", ht.search("apple"))
+# ht.delete("banana")
+# ht.display()
