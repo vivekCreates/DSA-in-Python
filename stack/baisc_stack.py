@@ -10,6 +10,9 @@ class Stack:
         
     def pop(self):
         self.stack.pop()
+    
+    def size(self):
+        return len(self.stack)
         
     def peek(self):
         if len(self.stack) == 0:
