@@ -21,7 +21,11 @@ class Queue:
             self.length-=1
             
     def peek(self):
-        print(self.queue[self.front])
+        if self.length == 0:
+            print("Queue is empty !")
+            return
+        else:
+            print(self.queue[self.front])
         
     def size(self):
         return self.length
@@ -41,5 +45,6 @@ q.enqueue(10)
 q.enqueue(20)
 q.enqueue(30)
      
-
+q.printQueue()
+q.dequeue()
 q.printQueue()
