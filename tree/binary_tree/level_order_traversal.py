@@ -58,13 +58,15 @@ b.right = e
 def level_order(root):
      q = Queue()
      q.enqueue(root)
-     
+     arr=[]
      while q.size()>0:
+         
          front = q.dequeue()
+         arr.append([front.data])
          print(front.data)
          if(front.left != None): q.enqueue(front.left)
          if(front.right != None): q.enqueue(front.right)
-         
+     
     
     
     
