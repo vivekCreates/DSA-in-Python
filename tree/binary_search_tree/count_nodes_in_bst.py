@@ -19,15 +19,17 @@ b.left = d
 c.left= e
 c.right = f
 
-
 def count_nodes(root, l, h):
     if root is None:
         return 0
     
-    if l <= root.data <= h:
-        return 1 + count_nodes(root.left, l, h) + count_nodes(root.right, l, h)
-    else:
-        return count_nodes(root.left, l, h) + count_nodes(root.right, l, h)
+    if root.data < l:
+        return count_nodes(root.right, l, h)
+    
+    if root.data > h:
+        return count_nodes(root.left, l, h)
+    
+    return 1 + count_nodes(root.left, l, h) + count_nodes(root.right, l, h)
 
 
 print("count: ",count_nodes(a,4,100))
