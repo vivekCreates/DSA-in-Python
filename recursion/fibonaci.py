@@ -7,7 +7,7 @@ def fibo(n):
 
 
 start = time.time()
-ans = fibo(50)
+ans = fibo(40)
 print(ans)
 end = time.time()
 
