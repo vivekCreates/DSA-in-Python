@@ -10,9 +10,9 @@ def min_cost(arr,i,dp):
     return dp[i]
 
 
-def min_cost_climbing_stairs(arr,i):
+def min_cost_climbing_stairs(arr):
     dp = [-1]* len(arr)
-    return min_cost(arr,i,dp)
+    return min(min_cost(arr,0,dp),min_cost(arr,1,dp))
 
-ans = min_cost_climbing_stairs([10,20,5,2],0)
+ans = min_cost_climbing_stairs([10,20,5,2])
 print("Min cost: ",ans)
